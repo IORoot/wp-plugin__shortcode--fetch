@@ -3,78 +3,6 @@
 namespace andyp\fetch;
 
 
-/**
- * 
- * Use {{help}} to see ALL fields.
- * 
- * 
- * Data Types
- * --------------
- * 
- * {{type::field::level1::level2::level3--function}}
- * 
- * Types: post, meta, image, taxonomy, extra, help
- * 
- * 
- * 
- * Available Functions
- * --------------
- * 
- * --sanitize
- *
- * 
- * Simple Example:
- * ---------------
- * [tutorial_posts] Show the {{post::post_title}} [/tutorial_posts]
- * 
- * 
- * Add attributes:
- * ---------------
- * [tutorial_posts posts_per_page='10'] Show the {{post::post_title}} [/tutorial_posts]
- * [tutorial_posts post_type='demonstration'] Show the {{post::post_title}} for demonstrations [/tutorial_posts]
- * 
- * 
- * Different content fields:
- * -------------------------
- * [tutorial_posts posts_per_page='1']
- * 
- *      <h2>Post Fields</h2>
- *      {{post::post_title}} 
- *      {{extras::permalink}} 
- * 
- *      <h2>Sanitize Fields to make them like a slug</h2>
- *      {{post::post_title--sanitize}} 
- * 
- *      <h2>Meta Fields</h2>
- *      {{meta::meta_field}} 
- * 
- *      <h2>Image Fields</h2>
- *      {{image::url}} 
- *      {{image::path}} 
- *      {{image::metadata::width}} 
- *      {{image::metadata::sizes::thumbnail::file}} 
- * 
- * [/tutorial_posts]
- * 
- * 
- * Add taxonomy / tag filters:
- * ---------------------------
- * You can change the taxonomy or term in the initial query.
- *  ['tax_query'] =
-        [
-            'taxonomy' => $taxonomy,
-            'field'    => 'slug',
-            'terms'    => $term,
-        ],
- * [tutorial_posts taxonomy="tutorial_category" term="cat-leaps"] Show the {{post_title}} [/tutorial_posts]
- * 
- * 
- * Content Note:
- * -------------
- * If the post_content contains {{moustaches}} itself, these will NOT be parsed for now.
- * 
- */
-
 class fetch
 {
 
@@ -82,17 +10,6 @@ class fetch
     private $query_args = [];        // Create the arguments to query the DB.
     private $all_posts;              // all posts returned from query.
 
-    /**
-     *  1 => [
-     *      post => [],
-     *      meta => [],
-     *      image => [],
-     *      taxonomy => [],
-     *      extra => [],
-     * ],
-     * 2 => [
-     * ]
-     */
     private $results;     
 
     public $attributes;
