@@ -79,6 +79,7 @@ class parse_moustaches
             $this->get_moustache_value();
 
             $this->sanitize();
+            $this->date();
 
             $this->replace_moustache_with_value();
         }
@@ -99,6 +100,14 @@ class parse_moustaches
     {
         $sanitize = new functions\sanitize($this->loop_moustache_field, $this->moustache_value);
         $this->moustache_value = $sanitize->get_results();
+    }
+
+
+    
+    private function date()
+    {
+        $date = new functions\date($this->loop_moustache_field, $this->moustache_value);
+        $this->moustache_value = $date->get_results();
     }
 
 

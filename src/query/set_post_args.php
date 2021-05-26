@@ -26,6 +26,7 @@ class set_post_args {
     {
                 
         $this->set_defaults();
+        $this->strings_to_arrays();
 
         if (is_array($this->attributes)){
             $this->query_args = array_merge($this->query_args, $this->attributes);
@@ -45,5 +46,17 @@ class set_post_args {
     public function get_args()
     {
         return $this->query_args;
+    }
+
+    private function strings_to_arrays()
+    {
+        if (!is_array($this->attributes)){ return; }
+
+        foreach ($this->attributes as $key => $attribute)
+        {
+            if( strpos($attribute, ',') !== false ) {
+                $this->attributes[$key] = explode(',', $attribute);
+            }
+        }
     }
 }
