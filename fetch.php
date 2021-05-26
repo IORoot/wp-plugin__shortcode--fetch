@@ -2,7 +2,7 @@
 
 /*
  * @wordpress-plugin
- * Plugin Name:       _ANDYP - Fetch - Shortcode
+ * Plugin Name:       _ANDYP - Shortcode [fetch]
  * Plugin URI:        http://londonparkour.com
  * Description:       <strong>Shortcode</strong> [fetch] {{post::post_title--sanitize}} [/fetch]
  * Version:           1.0.0
