@@ -63,6 +63,8 @@ class fetch
     {
         $tax_query = new query\set_taxonomy_args($this->attributes, $this->config);
         $this->query_args = array_merge((array) $this->query_args, $tax_query->get_args());
+        unset($this->attributes["taxonomy"]);
+        unset($this->attributes["term"]);
     }
 
     /**
