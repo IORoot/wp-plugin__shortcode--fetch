@@ -121,7 +121,8 @@ class parse_moustaches
         foreach ($this->array_path_for_moustache_value as $level_name)
         {
             if (!array_key_exists($level_name,$this->moustache_value)){ 
-                $this->moustache_value = "<br/>[Error. Array Key \"".$level_name."\" not found in {{".$this->loop_moustache_field."}} moustaches.]"; 
+                // $this->moustache_value = "<br/>[Error. Array Key \"".$level_name."\" not found in {{".$this->loop_moustache_field."}} moustaches.]"; 
+                $this->moustache_value = "";
                 continue;
             }
 
